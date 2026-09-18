@@ -3,7 +3,7 @@
 A frozen text model plays Doom. The model is the encoder inside
 [GLiNER2.5](https://huggingface.co/fastino/gliner2.5-multi-v1), a 287M-parameter document-extraction
 model. It never sees pixels, nothing is generated, and it was never trained on games. A small head
-trained here reads the model's output and presses a button, 35 times a second, on an Apple laptop.
+trained here reads the model's output and presses a button, 35 times a second, on a base Mac mini M4 with 16 GB.
 
 ## How one decision works
 
@@ -84,7 +84,7 @@ heads/                     trained heads (v1-v6, ablation) with json metadata
 scripts/pipeline.sh        the resumable training pipeline used for v4-v6
 ```
 
-Rust throughout, no system packages, one Python file for the engine. macOS arm64 only for now.
+Rust throughout, no system packages, one Python file for the engine. Developed and measured on a base Mac mini M4, 16 GB; macOS arm64 only for now.
 
 ## Credits
 
