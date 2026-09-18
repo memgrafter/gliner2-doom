@@ -44,7 +44,13 @@ impl MetalEncoder {
     /// Head device (Metal when available) and f32 weights. `GLINER2_DOOM_ENCODER_DTYPE=f16` opts
     /// into f16: it measured within 10% of f32 for speed and ~6x noisier against the fp32
     /// reference, so f32 stays the default, especially for building training caches.
+    /// `GLINER2_DOOM_ENCODER_DIR` points at another directory with the same three files (e.g. stock
+    /// mDeBERTa weights renamed under the encoder.* prefix) for ablations; caches are per data dir, so
+    /// evaluate such an encoder on a copy of the split, never on data2/ itself.
     pub fn load(dir: Option<&Path>) -> Result<Self> {
+        let env_dir = std::env::var("GLINER2_DOOM_ENCODER_DIR").ok().map(PathBuf::from);
+        let dir = dir.map(Path::to_path_buf).or(env_dir);
+        let dir = dir.as_deref();
         let dtype = match std::env::var("GLINER2_DOOM_ENCODER_DTYPE").as_deref() {
             Ok("f16") => DType::F16,
             _ => DType::F32,
