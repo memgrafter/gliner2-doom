@@ -3,7 +3,7 @@ id: gd-eok7
 status: open
 open: true
 deps: []
-links: [gd-ngu7, gd-88vd]
+links: [gd-ngu7, gd-88vd, gd-jf3i]
 created: 2026-09-18T14:55:58Z
 type: feature
 priority: 2

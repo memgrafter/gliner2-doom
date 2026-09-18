@@ -3,7 +3,7 @@ id: gd-u0r3
 status: open
 open: true
 deps: []
-links: [pro-zekx]
+links: [pro-zekx, gd-jf3i]
 created: 2026-09-18T18:22:19Z
 type: feature
 priority: 2
