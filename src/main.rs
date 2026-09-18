@@ -164,6 +164,9 @@ enum Cmd {
         wad: Option<String>,
         #[arg(long)]
         map: Option<String>,
+        /// Open ViZDoom's game window to watch the rollout (the oracle, or the driving head).
+        #[arg(long)]
+        window: bool,
     },
     /// Direct policy, step 2: train the option-attention head on data/train.jsonl, select on val, fit temperature.
     Train {
@@ -521,7 +524,7 @@ fn main() -> Result<()> {
             serve::run(move || scorer::Scorer::new(&models_dir, prec), port)
         }
         Cmd::Triage { file, models_dir, precision } => triage(file, models_dir, precision),
-        Cmd::Collect { scenario, episodes, epsilon, out_dir, timeout_tics, table, head, wad, map } => {
+        Cmd::Collect { scenario, episodes, epsilon, out_dir, timeout_tics, table, head, wad, map, window } => {
             let scenario = if wad.is_some() || map.is_some() { "level".to_string() } else { scenario };
             let tag = match (&wad, &map) {
                 (Some(w), Some(m)) => format!("{}:{m}", std::path::Path::new(w).file_stem().and_then(|x| x.to_str()).unwrap_or("wad")),
@@ -532,7 +535,7 @@ fn main() -> Result<()> {
                 Some(h) => Some(direct::driver_from_head(&h)?),
                 None => None,
             };
-            let (rows, rewards) = direct::collect(direct::CollectOpts { scenario, episodes, epsilon, out_dir: out_dir.clone(), timeout_tics: timeout_tics.or(Some(2100)), table, wad, map, driver, tag })?;
+            let (rows, rewards) = direct::collect(direct::CollectOpts { scenario, episodes, epsilon, out_dir: out_dir.clone(), timeout_tics: timeout_tics.or(Some(2100)), table, wad, map, driver, tag, window })?;
             println!("collected {rows} rows into {}; episode rewards mean {:.2}; totals train={} val={} test={}", out_dir.display(),
                 rewards.iter().sum::<f32>() / rewards.len().max(1) as f32,
                 direct::count_rows(&out_dir.join("train.jsonl")), direct::count_rows(&out_dir.join("val.jsonl")), direct::count_rows(&out_dir.join("test.jsonl")));

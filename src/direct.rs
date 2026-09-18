@@ -46,6 +46,8 @@ pub struct CollectOpts {
     /// When set, this head drives and the oracle only labels (DAgger).
     pub driver: Option<Box<dyn FnMut(&str, &[OptionDef]) -> Result<usize>>>,
     pub tag: String,
+    /// Open ViZDoom's game window so the rollout can be watched.
+    pub window: bool,
 }
 
 pub fn collect(mut o: CollectOpts) -> Result<(usize, Vec<f32>)> {
@@ -55,7 +57,7 @@ pub fn collect(mut o: CollectOpts) -> Result<(usize, Vec<f32>)> {
         .iter()
         .map(|n| std::fs::OpenOptions::new().create(true).append(true).open(o.out_dir.join(format!("{n}.jsonl"))))
         .collect::<std::io::Result<_>>()?;
-    let init = InitOpts { scenario: o.scenario.clone(), mode: "sync".into(), width: 160, height: 120, timeout_tics: o.timeout_tics, wad: o.wad.clone(), map: o.map.clone(), ..Default::default() };
+    let init = InitOpts { scenario: o.scenario.clone(), mode: "sync".into(), width: if o.window { 640 } else { 160 }, height: if o.window { 480 } else { 120 }, visible: o.window, timeout_tics: o.timeout_tics, wad: o.wad.clone(), map: o.map.clone(), ..Default::default() };
     let mut b = Bridge::spawn(&init)?;
     let opts = available(&table, &b.buttons);
     let names: Vec<String> = opts.iter().map(|x| x.name.clone()).collect();
