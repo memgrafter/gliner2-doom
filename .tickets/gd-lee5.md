@@ -16,7 +16,7 @@ Handoff written 2026-09-18 04:37 local for the next session. Read this, then `tk
 
 ## What this project is
 
-GLiNER2.5 plays Doom. Rust binary `gliner2-doom` (this dir), ViZDoom engine through one Python glue file (`bridge/vizdoom_bridge.py`, venv `~/virtualenvs/gliner2-doom-vizdoom`), GLiNER2.5-multi encoder via ONNX Runtime (vendored dylib in `vendor/onnxruntime`, weights in the HF cache), trained option-attention head run and trained with candle (Hugging Face's Rust ML library). Rules: no system deps, new code in Rust, maintained libs only, no agnt.gg. Trent's design direction: input -> output through a learned model; no describer/label/rule layers (see pro-yjme). README.md and AGENTS.md are current except for the pro-zekx results.
+GLiNER2.5 plays Doom. Rust binary `gliner2-doom` (this dir), ViZDoom engine through one Python glue file (`bridge/vizdoom_bridge.py`, venv `~/virtualenvs/gliner2-doom-vizdoom`), GLiNER2.5-multi encoder via ONNX Runtime (vendored dylib in `vendor/onnxruntime`, weights in the HF cache), trained option-attention head run and trained with candle (Hugging Face's Rust ML library). Rules: no system deps, new code in Rust, maintained libs only, no agnt.gg. Design direction: input -> output through a learned model; no describer/label/rule layers (see pro-yjme). README.md and AGENTS.md are current except for the pro-zekx results.
 
 ## Where things stand
 
@@ -52,11 +52,11 @@ Claude's shell is not a TTY: use `--no-tui` or `--window`. ViZDoom drops `_vizdo
 - Corpses keep their class name: filtered as monster labels wider than tall. Pickups whitelisted. DeadMarine etc excluded.
 - Split rule: of every 8 episodes, 7th -> val, 8th -> test (map collections use 8 eps).
 - Rebuilding while a pipeline runs is OK on macOS (each stage launches the binary fresh), but CPU contention slows encoder stages; ORT uses 8 threads.
-- Disk: data*/states.bin caches are big (3.6 GB for data2) and regenerable. 31 GB free at handoff after removing Colima (Trent asked; Docker is gone from this machine).
+- Disk: data*/states.bin caches are big (3.6 GB for data2) and regenerable. 31 GB free at handoff after removing Colima (at the maintainer's request; Docker is gone from this machine).
 
 ## Not committed
 
-Nothing in gliner2-doom/ has ever been committed; `.tickets/` lives inside it. Trent decides when to commit.
+Nothing in gliner2-doom/ has ever been committed; `.tickets/` lives inside it. The maintainer decides when to commit.
 
 ## Next after pro-zekx and gd-ngu7 (ideas, not tickets)
 

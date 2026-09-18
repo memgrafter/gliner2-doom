@@ -1,18 +1,18 @@
 # gliner2-doom
 
 A frozen text model plays Doom on a base Mac mini M4. The model is the encoder inside
-[GLiNER2.5](https://huggingface.co/fastino/gliner2.5-multi-v1); a small head trained here turns its reading of the game into a button press.
+[GLiNER2.5](https://huggingface.co/fastino/gliner2.5-multi-v1); a small head trained here turns its reading of the game into a move.
 
 ## One decision
 
 ```
-ViZDoom ──▶ one line of JSON ──▶ frozen encoder ──▶ trained head ──▶ button
+ViZDoom ──▶ one line of JSON ──▶ frozen encoder ──▶ trained head ──▶ move
 ```
 
 - The engine reports health, ammo, walls, enemies and pickups. No pixels.
 - Rust writes that as one short line of JSON, the model's only input.
 - The encoder runs on the GPU and turns the line into vectors.
-- The head scores ten moves against those vectors and presses the winner.
+- The head scores ten moves against those vectors; the winner's buttons are held for a few tics.
 
 Thirty-five decisions a second, about 12 ms each.
 

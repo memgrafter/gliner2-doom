@@ -12,7 +12,7 @@ tags: [gliner2, doom, jev, planning]
 ---
 # Finding the boundaries of Jev Doom Demo
 
-Verbatim transcript of TypeSafe's Jev Doom demo video (supplied by Trent 2026-09-18), kept here to plan against.
+Verbatim transcript of TypeSafe's Jev Doom demo video (supplied by the maintainer 2026-09-18), kept here to plan against.
 
 00:02 — Jev is so fast it can play "Doom." Every decision, where to move, where to aim, whether to hold down the trigger, Jev
 

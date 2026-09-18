@@ -14,7 +14,7 @@ tags: [gliner2, doom, rust, jev, onnx, vizdoom]
 
 One monumental ticket: GLiNER2.5 plays Doom, end to end, then the same scorer answers business questions. Working dir: `gliner2-doom/` (lowercase, in this repo). Scaffolding/experiments live in `gliner2-doom/lab/` and get deleted at the end so the shipped tree is dead simple.
 
-## Constraints (from Trent, 2026-09-17)
+## Constraints (set by the maintainer, 2026-09-17)
 
 - **No system deps.** Nothing via brew/apt. Only: cargo (present, 1.98), uv + Python 3.12 (present), Xcode CLT (present, Rust needs it anyway). Everything else is a crate, a pip wheel in a project venv, or a file we download into the project.
 - **Anything new is Rust.** Off-the-shelf pieces can be whatever they are.
