@@ -1,0 +1,18 @@
+{
+  "temperature": 0.5,
+  "d_att": 256,
+  "options": [
+    "attack",
+    "move backward",
+    "move forward",
+    "strafe left",
+    "strafe right",
+    "turn left",
+    "turn left a little",
+    "turn right",
+    "turn right a little",
+    "use"
+  ],
+  "trained_rows": 29780,
+  "notes": "v6: reward-weighted regression on v5's own rollouts (kills 10, items 3, health 0.05, ammo -0.05), warm start v5"
+}

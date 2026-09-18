@@ -1,0 +1,18 @@
+{
+  "temperature": 0.65000004,
+  "d_att": 256,
+  "options": [
+    "attack",
+    "move backward",
+    "move forward",
+    "strafe left",
+    "strafe right",
+    "turn left",
+    "turn left a little",
+    "turn right",
+    "turn right a little",
+    "use"
+  ],
+  "trained_rows": 19875,
+  "notes": "v1: oracle+eps0.2, defend 40 eps + level 24 eps"
+}

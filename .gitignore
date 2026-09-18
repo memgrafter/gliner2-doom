@@ -1,0 +1,22 @@
+# Build output (cargo). target-metal was a side build used while the Metal port was verified.
+/target
+/target-metal
+
+# Fetched, regenerable: ONNX Runtime (just fetch-ort) and an optional local copy of the encoder
+# weights (the default location is the Hugging Face cache).
+/vendor
+/models/
+
+# Rollouts and encoder state caches: regenerable with `collect`, large (GBs).
+/data*/
+
+# Scratch experiments; deleted before a ticket closes.
+/lab/
+
+# Per-run artifacts.
+_vizdoom.ini
+/heads/*.best.safetensors
+/scripts/pipeline.log
+
+# OS / editor
+.DS_Store

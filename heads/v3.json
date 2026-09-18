@@ -1,0 +1,18 @@
+{
+  "temperature": 0.6,
+  "d_att": 256,
+  "options": [
+    "attack",
+    "move backward",
+    "move forward",
+    "strafe left",
+    "strafe right",
+    "turn left",
+    "turn left a little",
+    "turn right",
+    "turn right a little",
+    "use"
+  ],
+  "trained_rows": 37445,
+  "notes": "v3: v2 data + DAgger round 2 on level (v2 drives), 25 epochs"
+}

@@ -1,0 +1,18 @@
+{
+  "temperature": 0.70000005,
+  "d_att": 256,
+  "options": [
+    "attack",
+    "move backward",
+    "move forward",
+    "strafe left",
+    "strafe right",
+    "turn left",
+    "turn left a little",
+    "turn right",
+    "turn right a little",
+    "use"
+  ],
+  "trained_rows": 29635,
+  "notes": "v2: v1 data + DAgger round 1 (v1 drives, oracle labels), 25 epochs"
+}

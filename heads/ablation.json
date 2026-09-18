@@ -1,0 +1,18 @@
+{
+  "temperature": 0.8500001,
+  "d_att": 256,
+  "options": [
+    "attack",
+    "move backward",
+    "move forward",
+    "strafe left",
+    "strafe right",
+    "turn left",
+    "turn left a little",
+    "turn right",
+    "turn right a little",
+    "use"
+  ],
+  "trained_rows": 29635,
+  "notes": "ablation: contexts permuted across rows (same data as v2)"
+}

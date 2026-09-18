@@ -1,0 +1,31 @@
+[package]
+name = "gliner2-doom"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "GLiNER2.5 zero-shot classifier plays Doom (ViZDoom), plus a System One style scoring endpoint."
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
+# Pinned exactly: young single-author crate, and ort release candidates break APIs between rcs.
+gliner25-rs = "=0.5.6"
+ort = { version = "=2.0.0-rc.13", default-features = false }
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+crossterm = "0.29"
+axum = "0.8"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+candle-core = { version = "0.11", features = ["metal"] }
+candle-nn = { version = "0.11", features = ["metal"] }
+hf-hub = "0.5"
+tokenizers = "0.23"
+half = "2"
+rand = "0.9"
+
+[profile.release]
+debug = false
+strip = true

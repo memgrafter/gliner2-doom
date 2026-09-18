@@ -1,0 +1,18 @@
+{
+  "temperature": 0.65000004,
+  "d_att": 256,
+  "options": [
+    "attack",
+    "move backward",
+    "move forward",
+    "strafe left",
+    "strafe right",
+    "turn left",
+    "turn left a little",
+    "turn right",
+    "turn right a little",
+    "use"
+  ],
+  "trained_rows": 48954,
+  "notes": "v4: oracle eps0.2 on defend + 12 training maps; corpses filtered, pickups sought"
+}
