@@ -1,3 +1,7 @@
+# IMPORTANT
+
+This repo is a static research artifact and will not be updated. Do not submit pull requests. You make fork it and use it per the MIT license.
+
 # gliner2-doom
 
 A frozen text model plays Doom on a base Mac mini M4. The model is the encoder inside
